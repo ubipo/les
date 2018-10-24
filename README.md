@@ -1,2 +1,2 @@
-# les
-SEL - SEL Embedded Logger
+# Sel
+Sel - Sel Embedded Logger

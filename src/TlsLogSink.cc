@@ -1,17 +1,19 @@
-#include "SstlLogSink.h"
+#include "TlsLogSink.h"
 #include <ESP8266WiFi.h>
 #include "Arduino.h"
 
 #include <cstddef>
 
-SstlLogSink::SstlLogSink(IPAddress sstlIp, int sstlPort, DcntLogger::Levels minLevel) : LogSink::LogSink(DcntLogger::Levels::DEBUG) {
+using namespace Sel;
+
+TlsLogSink::TlsLogSink(IPAddress sstlIp, int sstlPort, Levels minLevel) : LogSink::LogSink(Levels::DEBUG) {
   this->sstlIp = sstlIp;
   this->sstlPort = sstlPort;
 
   connect();
 };
 
-bool SstlLogSink::connect() {
+bool TlsLogSink::connect() {
   if (isReady())
     client.stop();
 
@@ -23,11 +25,11 @@ bool SstlLogSink::connect() {
   return connected;
 }
 
-bool SstlLogSink::isReady() {
+bool TlsLogSink::isReady() {
   return client.availableForWrite();
 };
 
-void SstlLogSink::out(DcntLogger::Levels level, const char* src, const char* msg) {
+void TlsLogSink::out(Levels level, const char* src, const char* msg) {
   if (!isReady() && !connect()) return; // Isn't ready and can't connect
 
   char sep = '$';

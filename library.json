@@ -1,6 +1,6 @@
 {
-    "name": "DcntLogger",
-    "description": "Custom logger for dctn",
+    "name": "Sel",
+    "description": "Sel Embedded Logger",
     "include": "include",
     "build": {
         "flags": []
