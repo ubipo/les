@@ -1,0 +1,8 @@
+{
+    "name": "DcntLogger",
+    "description": "Custom logger for dctn",
+    "include": "include",
+    "build": {
+        "flags": []
+    }
+}
