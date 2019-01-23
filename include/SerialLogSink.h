@@ -4,14 +4,12 @@
 #include "./LogSink.h"
 #include <Arduino.h>
 
-using namespace Sel;
-
-class SerialLogSink : public LogSink {
+class SerialLogSink : public Sel::LogSink {
   public:
-  SerialLogSink(HardwareSerial* serialOut = &Serial, Levels minLevel = Levels::DEBUG);
-  SerialLogSink(Levels minLevel);
+  SerialLogSink(HardwareSerial* serialOut = &Serial, Sel::Levels minLevel = Sel::Levels::DEBUG);
+  SerialLogSink(Sel::Levels minLevel);
 
-  virtual void out(Levels level, const char* src, const char* msg);
+  virtual void out(Sel::Levels level, const char* src, const char* msg);
 
   /**
    * Checks wether the provided

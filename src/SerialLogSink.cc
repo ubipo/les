@@ -3,14 +3,14 @@
 
 #include <cstddef>
 
-SerialLogSink::SerialLogSink(HardwareSerial* serialOut, DcntLogger::Levels minLevel) : LogSink::LogSink(DcntLogger::Levels::DEBUG) {
+SerialLogSink::SerialLogSink(HardwareSerial* serialOut, Sel::Levels minLevel) : LogSink::LogSink(Sel::Levels::DEBUG) {
   this->serialOut = serialOut;
 };
 
-SerialLogSink::SerialLogSink(DcntLogger::Levels minLevels) : SerialLogSink(&Serial, minLevels) {};
+SerialLogSink::SerialLogSink(Sel::Levels minLevels) : SerialLogSink(&Serial, minLevels) {};
 
 
-void SerialLogSink::out(DcntLogger::Levels level, const char* src, const char* msg) {
+void SerialLogSink::out(Sel::Levels level, const char* src, const char* msg) {
   if (isReady()) {
     size_t srcLen = strlen(src);
     size_t msgLen = strlen(msg);
